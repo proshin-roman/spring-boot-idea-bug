@@ -1,0 +1,28 @@
+plugins {
+  id 'org.jetbrains.kotlin.jvm' version '1.9.21'
+  id 'org.springframework.boot' version '3.2.0'
+  id 'io.spring.dependency-management' version '1.1.4'
+}
+
+repositories {
+  mavenCentral()
+}
+
+group = 'org.proshin'
+version = '0.0.1-SNAPSHOT'
+
+allprojects {
+  apply plugin: 'org.jetbrains.kotlin.jvm'
+  apply plugin: 'org.springframework.boot'
+  apply plugin: 'io.spring.dependency-management'
+
+
+  bootJar {
+    enabled = true
+    mainClass = 'org.proshin.LiquibaseFailureApplication'
+  }
+  jar {
+    enabled = true
+    archiveClassifier.set('') // remove "plain" suffix for jar files
+  }
+}
